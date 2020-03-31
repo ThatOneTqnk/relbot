@@ -12,7 +12,7 @@ cd relbot
 npm install
 ```
 
-3. Configure environment variables (Please see https://github.com/jellz/minehut-file-watcher on how to get server ID, auth_token, and x-session-id)
+3. Configure environment variables in `.env` (Please see https://github.com/jellz/minehut-file-watcher on how to get server ID, auth_token, and x-session-id)
 ```
 DTOKEN=DISCORD BOT TOKEN
 GREPO=SKRIPT GIT REPO
