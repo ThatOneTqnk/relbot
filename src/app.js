@@ -15,9 +15,14 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+const TARGET_GUILDS = (process.env.TARGET_GUILDS) ? process.env.TARGET_GUILDS.split(',') : [];
+
 client.on('message', msg => {
     if (msg.author.bot) return;
     else if (!msg.content.startsWith(PREFIX)) return;
+
+    if (TARGET_GUILDS.length > 0 && !TARGET_GUILDS.includes(msg.guild.id)) return;
+
     if(!(([...msg.guild.member(msg.author).roles.cache.values()]).some(r => r.name.toLowerCase() === 'developer'))) {
       msg.channel.send("Must have developer role to use relbot!");
       return;
